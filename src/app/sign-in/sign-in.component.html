@@ -1,0 +1,40 @@
+<nb-layout>
+  <nb-layout-column class="left-column">
+    <div>
+      <img class="large-icon" alt="small_logo" src="../../assets/logo_large.png">
+    </div>
+    <div class="header-text">
+      <span>Let's Conect</span>
+    </div>
+    <div class="sub-header-text">
+      <span>One click away from your Circle!!</span>
+    </div>
+    <div class="main-text">
+      <span>Nisi nunc et mi egestas nibh eget. Est cras suspendisse id erat elit felis, 
+        eu. Sollicitudin ullamcorper massa dictum enim id malesuada orci nibh pulvinar. 
+        Sed at feugiat arcu lorem et porttitor. Scelerisque amet orci congue dignissim.
+      </span>
+    </div>
+  </nb-layout-column>
+  <nb-layout-column class="right-column">
+    <nb-card class="login-card">
+      <div class="login-text">
+        <span>Log in</span>
+      </div>
+      <div class="login-frame">
+        <div class="login-group">
+          <span class="email-label">Email</span>
+          <form [formGroup]="form" (submit)="submit()">
+            <nb-form-field style="margin-top: 7px; margin-bottom: 8%;">
+              <input id="emailInput" type="email" nbInput class="form-control" formControlName="email" placeholder="example@mail.com"/>
+              <span class="tip">*please choose a user name</span>
+            </nb-form-field>
+            <div class="button-frame">
+              <button [disabled]="form.invalid" class="login-button" type="submit" nbButton><span class="login-button-text">Log In</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,153 @@
+.chats-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+}
+
+.chats-title {
+  width: 507px;
+  height: 38px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 38px;
+  color: #000000;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.add-chat-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px;
+  gap: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.add-chat-button {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.add-chat-button:hover {
+  opacity: .7;
+}
+
+.plus-icon {
+  position: absolute;
+  color: white;
+  height: 14px !important;
+  width: 14px !important;
+}
+
+.chat-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  height: 80px;
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.list-item {
+  border: none;
+  border-top: none !important;
+  padding: inherit;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  border-radius: 8px;
+}
+
+.list-item:hover {
+  background: #ECEEF3;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.list-item-active {
+  border: none;
+  border-top: none !important;
+  background: #ECEEF3;
+  padding: inherit;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  border-radius: 8px;
+}
+
+.list {
+  margin-top: 2em;
+  overflow-y: auto;
+  display: flex;
+  height: 74vh;
+  padding: 3px;
+}
+
+.chat-info-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  height: 19px;
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.chat-name-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  height: 19px;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.chat-date {
+  height: 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #9C9B9F;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  padding: 5px;
+}
+
+.chat-name {
+  width: 69px;
+  height: 19px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #393640;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.chat-info {
+  z-index: 11;
+  position: absolute;
+  left: 94%;
+  top: 14%;
+}

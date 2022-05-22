@@ -1,0 +1,71 @@
+<nb-layout withScroll="false">
+  <nb-layout-header class="header">
+    <img alt="small_logo" src="../../assets/logo-small.png">
+    <nb-form-field class="search-bar">
+      <nb-icon nbSuffix icon="search-outline" pack="eva"></nb-icon>
+      <input 
+        type="text" 
+        nbInput
+        placeholder="Search"
+        [formControl]="input"
+        [nbAutocomplete]="chatSearch"/>
+      <nb-autocomplete #chatSearch>
+        <nb-option *ngFor="let chat of filteredChats$ | async" [value]="chat.name">
+          {{ chat.name }}
+        </nb-option>
+      </nb-autocomplete>
+    </nb-form-field>
+    <span class="header-spacer"></span>
+    <nb-user
+      size="large"
+      name="{{ userEmail }}"
+      color="#cccccc"
+      onlyPicture
+      class="avatar">
+    </nb-user>
+  </nb-layout-header>
+  <nb-layout-column class="chats-column">
+    <div class="chats-frame">
+      <span class="chats-title">Chats</span>
+      <div class="add-chat-frame">
+        <button class="add-chat-button" nbButton (click)="openAddChatModal()">
+          <nb-icon class="plus-icon" icon="plus-outline" pack="eva"></nb-icon>
+        </button>
+      </div>
+    </div>
+    <nb-list class="list">
+      <nb-list-item (click)="chatSelected(chat)" [ngClass]="isSelected(chat) ? 'list-item-active' : 'list-item'" *ngFor="let chat of filteredChats$ | async">
+        <div class="chat-frame">
+          <nb-user shape="rectangle"
+            size="large" 
+            name="chat.name" 
+            showName="false"
+            color="#cccccc"
+            onlyPicture>
+          </nb-user>
+        </div>
+        <div class="chat-info-frame">
+          <div class="chat-name-frame">
+            <span class="chat-name">{{chat.name}}</span>
+          </div>
+          <span class="chat-date">{{chat.creationDateString}}</span>
+        </div>
+      </nb-list-item>
+    </nb-list>
+  </nb-layout-column>
+  <nb-layout-column class="open-chat-column" style="flex: auto">
+    <button *ngIf="chatInfo" class="chat-info" ghost nbTooltip="{{chatInfo}}" nbTooltipPlacement="left" nbTooltipStatus="control" nbButton>
+      <nb-icon icon="info-outline" pack="eva"></nb-icon>
+    </button>
+    <nb-chat *ngIf="selectedChat" title="{{selectedChat.name}}">
+      <nb-chat-message *ngFor="let msg of messages"
+        [type]="'text'"
+        [reply]="false"
+        [message]="msg.text.message"
+        [sender]="msg.owner"
+        [date]="msg.creationDateString">
+      </nb-chat-message>
+      <nb-chat-form (send)="sendMessage($event)" [dropFiles]="false"></nb-chat-form>
+    </nb-chat>
+  </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,25 @@
+<nb-card>
+  <nb-card-body>
+    <div class="title-frame">
+      <span class="title-text">Create a Chat</span>
+      <button nbButton ghost class="clear-button" (click)="clear()">
+        <nb-icon class="clear-icon" icon="close-outline" pack="eva"></nb-icon>
+      </button>
+    </div>
+    <div class="text-frame">
+      <span class="text">
+        Chats are where your circle communicates. They’re best when organized around a topic — #Writing, for example.
+      </span>
+    </div>
+    <form [formGroup]="form" (submit)="submit()">
+      <div class="chat-input-frame">
+        <span class="chat-name-text">Name</span>
+        <input formControlName="chatName" id="chatInput" type="text" nbInput placeholder="# e.g. Writing"/>
+        <div *ngIf="chatName?.errors?.['maxlength']" style="padding-left: 3px;">
+          Chat name may not exceed 20 characters.
+        </div>
+      </div>
+      <button nbButton [disabled]="form.invalid" class="create-chat-button" type="submit"><span class="create-chat-text">Create</span></button>
+    </form>
+  </nb-card-body>
+</nb-card>
